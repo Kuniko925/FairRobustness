@@ -38,7 +38,7 @@ class RandomNoiseAttack:
         pred, pred_class = self.model.predict(np.expand_dims(x, axis=0))
         adv_pred, adv_pred_class = self.model.predict(np.expand_dims(adv_x, axis=0))
         
-        print(f"True label: {true_label}")
+        print(f"True label: {self.true_label}")
         print(f"Prediction: {pred}")
         print(f"Prediction class: {pred_class}")
         print(f"Adversarial Prediction: {adv_pred}")
