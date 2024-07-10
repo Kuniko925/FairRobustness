@@ -107,4 +107,4 @@ class CNNModel:
     def predict(self, image):
         pred = self.model.predict(image, verbose=0)
         pred_class = "1" if pred[0] >= 0.5 else "0"
-        return pred[0], pred_class
+        return pred, pred_class
