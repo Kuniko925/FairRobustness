@@ -8,6 +8,7 @@
 ## Preprocessing
 
 ### HAM10000 Preprocessing
+https://github.com/Kuniko925/FairRobustness/blob/main/src/Preprocessing%20Fitzpatrick17K.ipynb
 
 ### Fitzpatrick17K Preprocessing
 
