@@ -7,5 +7,12 @@
 
 ## Preprocessing
 
+### HAM10000 Preprocessing
+
+### Fitzpatrick17K Preprocessing
 
 ## Training -- > Adversarial Attacks
+
+### CNN model
+
+### ResNet50 model
