@@ -16,6 +16,10 @@ https://github.com/Kuniko925/FairRobustness/blob/main/src/Preprocessing%20HAM100
 
 ## Training -- > Adversarial Attacks
 
-### CNN model
+### HAM10000
+- CNN: https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000.ipynb
+- ResNet50: https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000%20ResNet.ipynb
 
-### ResNet50 model
+### Fitzpatrick17K
+- CNN: https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K.ipynb
+- ResNet50: https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K%20ResNet.ipynb
