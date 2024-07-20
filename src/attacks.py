@@ -53,17 +53,12 @@ def attack_visualisation(x, adv_x, true_label, pred, pred_class, adv_pred, adv_c
     plt.show()
 
 # Random Noise attack
-def make_noise_image(original_image, eps):
-    np.random.seed(12)
+def make_noise_image(original_image, eps): # esp is less than 1
+
     eta = np.random.uniform(-eps, eps, original_image.shape).astype(np.float32)
     adv_image = original_image + eta
-
-    clip_min=None
-    clip_max=None
+    adv_image = tf.clip_by_value(adv_image, 0, 1)
     
-    if clip_min is not None or clip_max is not None:
-        assert clip_min is not None and clip_max is not None
-        adv_image = torch.clamp(adv_image, min=clip_min, max=clip_max)
     return adv_image
     
 def random_noise_attack_with_image(model, filepath, true_label, eps):
@@ -97,16 +92,17 @@ def create_adversarial_pattern(model, input_image, input_label):
             prediction = model(input_image)
             loss = loss_object(input_label, prediction)
         gradient = tape.gradient(loss, input_image)
-        signed_grad = tf.sign(gradient)
+        signed_grad = tf.sign(gradient) #[-1, 1]
         return signed_grad
 
 def fgsm_attack_with_image(model, filepath, true_label, eps):
 
-    x = load_image(filepath)
+    x = load_image(filepath) # 0-1
     label = tf.convert_to_tensor([float(true_label)]) # list 
     
     perturbations = create_adversarial_pattern(model, x, label)
     adv_x = x + eps * perturbations
+    adv_x = tf.clip_by_value(adv_x, 0, 1)
 
     pred = model.predict(x, verbose=0)
     pred_class = ["1" if p[0] >= 0.5 else "0" for p in pred]
@@ -123,6 +119,7 @@ def fgsm_attack(model, filepath, true_label, eps):
     
     perturbations = create_adversarial_pattern(model, x, label)
     adv_x = x + eps * perturbations
+    adv_x = tf.clip_by_value(adv_x, 0, 1)
 
     adv_pred = model.predict(adv_x, verbose=0)
     adv_class = ["1" if p[0] >= 0.5 else "0" for p in adv_pred]
@@ -186,9 +183,8 @@ def patch_application(image, patch_form, patch_size, eps):
     patch_left = patch_form[3]
     
     # Make noise
-    np.random.seed(42)
-    noise = np.random.uniform(low=-eps, high=eps, size=(patch_size, patch_size, 3))
-
+    noise = np.random.uniform(-eps, eps, (patch_size, patch_size, 3)).astype(np.float32)
+    
     image_copy = image.numpy().squeeze().copy()
     image_copy[patch_left:patch_right, patch_top:patch_bottom, :] += noise
     adv_x = tf.expand_dims(image_copy, axis=0)
@@ -206,6 +202,13 @@ def sailency_attack_with_image(model, filepath, true_label, eps, patch_size=10):
 
     patch_form = calculate_patch_locations(x, patch_size, center_x, center_y, center_c)
     adv_x = patch_application(x, patch_form, patch_size, eps)
+    adv_x = tf.clip_by_value(adv_x, 0, 1)
+        
+    #print("X")
+    #print(x[0, :30])
+
+    #print("ADV_X")
+    #print(adv_x[0, :30])
 
     pred = model.predict(x, verbose=0)
     pred_class = ["1" if p[0] >= 0.5 else "0" for p in pred]
@@ -229,6 +232,7 @@ def saliency_attack(model, filepath, true_label, eps, patch_size=10):
 
     patch_form = calculate_patch_locations(x, patch_size, center_x, center_y, center_c)
     adv_x = patch_application(x, patch_form, patch_size, eps)
+    adv_x = tf.clip_by_value(adv_x, 0, 1)
 
     adv_pred = model.predict(adv_x, verbose=0)
     adv_class = ["1" if p[0] >= 0.5 else "0" for p in adv_pred]
@@ -244,8 +248,8 @@ def attack_success_rate(df, attack_method):
     df[f"{attack_method} FP success"] = 0
 
     attack_success = (df["pred"] == df["labels"]) & (df["pred"] != df[f"{attack_method} pred class"])
-    tn_success = (df["pred"] == "0") & (df["pred"] != df[f"{attack_method} pred class"])
-    fp_success = (df["pred"] == "1") & (df["pred"] != df[f"{attack_method} pred class"])
+    tn_success = (df["pred"] == df["labels"]) & (df["pred"] == "0") & (df["pred"] != df[f"{attack_method} pred class"])
+    fp_success = (df["pred"] == df["labels"]) & (df["pred"] == "1") & (df["pred"] != df[f"{attack_method} pred class"])
 
     df.loc[attack_success, f"{attack_method} success"] = 1
     df.loc[tn_success, f"{attack_method} TN success"] = 1
