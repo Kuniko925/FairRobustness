@@ -7,7 +7,7 @@
 Measuring AI Fairness in a Continuum Maintaining Nuances: A Robustness Case Study
 
 ## Short Description
-<p align = 'justified'>As machine learning is increasingly making decisions about hiring or healthcare, we want AI to treat ethnic and socioeconomic groups fairly. Fairness is currently measured by comparing the average accuracy of reasoning across groups. We argue that improved measurement is possible on a continuum and without averaging, with the advantage that nuances could be observed within groups. Through the example of skin cancer diagnosis, we illustrate a new statistical method that treats fairness in a continuum. We outline this new approach and focus on its robustness against three distinct types of adversarial attacks. Indeed, such attacks can influence data in ways that may cause different levels of misdiagnosis for different skin tones, thereby distorting fairness. Our results reveal nuances that would not be evident in a strictly categorial approach.</p>p
+<p align = 'justified'>As machine learning is increasingly making decisions about hiring or healthcare, we want AI to treat ethnic and socioeconomic groups fairly. Fairness is currently measured by comparing the average accuracy of reasoning across groups. We argue that improved measurement is possible on a continuum and without averaging, with the advantage that nuances could be observed within groups. Through the example of skin cancer diagnosis, we illustrate a new statistical method that treats fairness in a continuum. We outline this new approach and focus on its robustness against three distinct types of adversarial attacks. Indeed, such attacks can influence data in ways that may cause different levels of misdiagnosis for different skin tones, thereby distorting fairness. Our results reveal nuances that would not be evident in a strictly categorial approach.</p>
 
 ## Datasets
 | Name | Link |
@@ -24,7 +24,6 @@ Preprocessing consists of skin detection, data balancing, splitting datasets, an
 | HAM10000 Preprocessing | [HAM10000 Preprocessing Notebook](https://github.com/Kuniko925/FairRobustness/blob/main/src/Preprocessing%20HAM10000.ipynb) |
 | Fitzpatrick17K Preprocessing | [Fitzpatrick17K Preprocessing Notebook](https://github.com/Kuniko925/FairRobustness/blob/main/src/Preprocessing%20Fitzpatrick17K.ipynb) |
 
-## Training -- Adversarial Attacks
 
 ## Training -- Adversarial Attacks
 
