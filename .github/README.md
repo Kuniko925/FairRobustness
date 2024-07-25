@@ -7,7 +7,7 @@
 Measuring AI Fairness in a Continuum Maintaining Nuances: A Robustness Case Study
 
 ## Short Description
-As machine learning is increasingly making decisions about hiring or healthcare, we want AI to treat ethnic and socioeconomic groups fairly. Fairness is currently measured by comparing the average accuracy of reasoning across groups. We argue that improved measurement is possible on a continuum and without averaging, with the advantage that nuances could be observed within groups. Through the example of skin cancer diagnosis, we illustrate a new statistical method that treats fairness in a continuum. We outline this new approach and focus on its robustness against three distinct types of adversarial attacks. Indeed, such attacks can influence data in ways that may cause different levels of misdiagnosis for different skin tones, thereby distorting fairness. Our results reveal nuances that would not be evident in a strictly categorial approach.
+<p align = 'justified'>As machine learning is increasingly making decisions about hiring or healthcare, we want AI to treat ethnic and socioeconomic groups fairly. Fairness is currently measured by comparing the average accuracy of reasoning across groups. We argue that improved measurement is possible on a continuum and without averaging, with the advantage that nuances could be observed within groups. Through the example of skin cancer diagnosis, we illustrate a new statistical method that treats fairness in a continuum. We outline this new approach and focus on its robustness against three distinct types of adversarial attacks. Indeed, such attacks can influence data in ways that may cause different levels of misdiagnosis for different skin tones, thereby distorting fairness. Our results reveal nuances that would not be evident in a strictly categorial approach.</p>p
 
 ## Datasets
 | Name | Link |
@@ -39,4 +39,5 @@ Preprocessing consists of skin detection, data balancing, splitting datasets, an
 This framework is available under the MIT License. 
  
 ## Acknowledgement
-The authors would like to thank the Dependable Intelligence Systems Lab, the Responsible AI Hull Research Group, and the Data Science, Artificial Intelligence, and Modelling (DAIM) Institute at the University of Hull for their support. Furthermore, the author extends heartfelt gratitude to Professor Balaraman Ravindran of the Indian Institute of Technology Madras, whose invaluable provision of the initial research idea has been the cornerstone of this study.
+<p align = 'justified'>The authors would like to thank the Dependable Intelligence Systems Lab, the Responsible AI Hull Research Group, and the Data Science, Artificial Intelligence, and Modelling (DAIM) Institute at the University of Hull for their support. Furthermore, the author extends heartfelt gratitude to Professor Balaraman Ravindran of the Indian Institute of Technology Madras, whose invaluable provision of the initial research idea has been the cornerstone of this study.</p>
+
