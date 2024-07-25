@@ -1,3 +1,8 @@
+<p align="left"> </p>
+
+ <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+ <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - \Python Style Guide"></a>
+
 # Fair-Robustness
 Measuring AI Fairness in a Continuum Maintaining Nuances: A Robustness Case Study
 
@@ -21,14 +26,17 @@ Preprocessing consists of skin detection, data balancing, splitting datasets, an
 
 ## Training -- Adversarial Attacks
 
-### HAM10000
-| Model | Link |
-|-------|------|
-| CNN | [HAM10000 CNN Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000.ipynb) |
-| ResNet50 | [HAM10000 ResNet50 Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000%20ResNet.ipynb) |
+## Training -- Adversarial Attacks
 
-### Fitzpatrick17K
-| Model | Link |
-|-------|------|
-| CNN | [Fitzpatrick17K CNN Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K.ipynb) |
-| ResNet50 | [Fitzpatrick17K ResNet50 Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K%20ResNet.ipynb) |
+| Dataset      | Model    | Link |
+|--------------|----------|------|
+| HAM10000     | CNN      | [HAM10000 CNN Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000.ipynb) |
+| HAM10000     | ResNet50 | [HAM10000 ResNet50 Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20HAM10000%20ResNet.ipynb) |
+| Fitzpatrick17K | CNN    | [Fitzpatrick17K CNN Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K.ipynb) |
+| Fitzpatrick17K | ResNet50 | [Fitzpatrick17K ResNet50 Experiments](https://github.com/Kuniko925/FairRobustness/blob/main/src/Experiments%20Fitzpatrick17K%20ResNet.ipynb) |
+
+## License
+This framework is available under the MIT License. 
+ 
+## Acknowledgement
+The authors would like to thank the Dependable Intelligence Systems Lab, the Responsible AI Hull Research Group, and the Data Science, Artificial Intelligence, and Modelling (DAIM) Institute at the University of Hull for their support. Furthermore, the author extends heartfelt gratitude to Professor Balaraman Ravindran of the Indian Institute of Technology Madras, whose invaluable provision of the initial research idea has been the cornerstone of this study.
