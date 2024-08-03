@@ -9,6 +9,9 @@ Measuring AI Fairness in a Continuum Maintaining Nuances: A Robustness Case Stud
 ## Short Description
 <p align = 'justified'>As machine learning is increasingly making decisions about hiring or healthcare, we want AI to treat ethnic and socioeconomic groups fairly. Fairness is currently measured by comparing the average accuracy of reasoning across groups. We argue that improved measurement is possible on a continuum and without averaging, with the advantage that nuances could be observed within groups. Through the example of skin cancer diagnosis, we illustrate a new statistical method that treats fairness in a continuum. We outline this new approach and focus on its robustness against three distinct types of adversarial attacks. Indeed, such attacks can influence data in ways that may cause different levels of misdiagnosis for different skin tones, thereby distorting fairness. Our results reveal nuances that would not be evident in a strictly categorial approach.</p>
 
+<p align="center">
+ <img src="https://github.com/ISorokos/SafeML/blob/master/SafeML_Logo.png" alt="FARO, Fairness-Robustness, Fairness, Adversarial Attack"> </p>
+
 ## Datasets
 | Name | Link |
 |------|------|
