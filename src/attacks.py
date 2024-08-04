@@ -244,25 +244,25 @@ def saliency_attack(model, filepath, true_label, eps, patch_size=10):
 def attack_success_rate(df, attack_method):
     
     df[f"{attack_method} success"] = 0
-    df[f"{attack_method} TN success"] = 0
     df[f"{attack_method} FP success"] = 0
+    df[f"{attack_method} FN success"] = 0
 
     attack_success = (df["pred"] == df["labels"]) & (df["pred"] != df[f"{attack_method} pred class"])
     tn_success = (df["pred"] == df["labels"]) & (df["pred"] == "0") & (df["pred"] != df[f"{attack_method} pred class"])
     fp_success = (df["pred"] == df["labels"]) & (df["pred"] == "1") & (df["pred"] != df[f"{attack_method} pred class"])
 
     df.loc[attack_success, f"{attack_method} success"] = 1
-    df.loc[tn_success, f"{attack_method} TN success"] = 1
-    df.loc[fp_success, f"{attack_method} FP success"] = 1
+    df.loc[tn_success, f"{attack_method} FP success"] = 1
+    df.loc[fp_success, f"{attack_method} FN success"] = 1
 
     # Calculate and print success rate
     success_rate = df[f"{attack_method} success"].mean()
     print(f"{attack_method} Success rate: {success_rate}")
 
-    success_rate = df[f"{attack_method} TN success"].mean()
-    print(f"{attack_method} TN Success rate: {success_rate}")
-
     success_rate = df[f"{attack_method} FP success"].mean()
     print(f"{attack_method} FP Success rate: {success_rate}")
+
+    success_rate = df[f"{attack_method} FN success"].mean()
+    print(f"{attack_method} FN Success rate: {success_rate}")
 
     return df
